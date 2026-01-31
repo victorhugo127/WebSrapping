@@ -109,6 +109,8 @@ The scraper continues execution even if some product fields are not found
 
 A configurable delay (rate_limit) prevents excessive requests
 
+---
+
 ### 📈 Possible Enhancements
 
 Export data to CSV or JSON
