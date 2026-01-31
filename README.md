@@ -10,22 +10,39 @@ The scraper collects product information in an automated and reliable way, follo
 
 ## 🛠️ Technologies Used
 
-- Python 3  
-- Selenium WebDriver  
-- Google Chrome  
-- ChromeDriver  
-- Object-Oriented Programming (OOP)
+- Python 3.12
+- Selenium WebDriver
+- Chromium / ChromeDriver
+- Pandas
+- Pytest
+- Docker & Docker Compose
+- YAML configuration
 
 ---
 
 ## 📂 Project Structure
 
 ```text
-webscraper/
+web_scraper/
 │
-├── webscraper.py        # Main scraper implementation
-├── requirements.txt    # Project dependencies
-└── README.md            # Project documentation
+├── src/
+│   ├── __init__.py
+│   ├── scraper.py          # Selenium scraper logic
+│   └── data_processor.py   # CSV / JSON data handling
+│
+├── tests/
+│   └── test_scraper.py     # Unit tests
+│
+├── config/
+│   └── config.yaml         # Scraper configuration
+│
+├── docker/
+│   ├── Dockerfile
+│   └── docker-compose.yml
+│
+├── web_scraper.py          # Main execution script
+├── requirements.txt
+└── README.md
 ```
 
 ## ⚙️ How the Scraper Works
@@ -63,42 +80,47 @@ For each product, the scraper collects:
 - Rating (based on star count)  
 - Reviews text  
 
-All data is stored as a **list of dictionaries**, ready for export or database integration.
+The data is stored as:
+
+CSV file with timestamp
+
+JSON file with timestamp
 
 ---
 
 ## ▶️ How to Run the Project
 
-### 1️⃣ Install dependencies
-
-```bash
-pip install selenium
-```
-
-### 2️⃣ Install ChromeDriver
-
-Make sure `chromedriver` is installed and accessible at:
+### 1️⃣ Create and activate virtual environment
 
 ```text
-/usr/bin/chromedriver
+python3 -m venv venv
+source venv/bin/activate
 ```
-
-### 3️⃣ Example Usage
+### 2️⃣ Install dependencies
 
 ```text
-from webscraper import WebScraper
+pip install -r requirements.txt
+```
 
-scraper = WebScraper(
-    base_url="https://example.com",
-    timeout=10,
-    rate_limit=2
-)
+### 3️⃣ Run the scraper
 
-scraper.open_site()
-products = scraper.get_products()
-scraper.close()
+```text
+python web_scraper.py
+```
 
-print(products)
+### 🐳 Run with Docker
+Build and start container
+
+```text
+docker-compose up --build
+```
+
+The scraper will execute automatically and extract product data.
+
+### 🧪 Running Tests
+
+```text
+pytest
 ```
 
 ### ⚠️ Error Handling & Rate Limiting
