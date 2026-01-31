@@ -27,138 +27,51 @@ webscraper/
 ├── requirements.txt    # Project dependencies
 └── README.md            # Project documentation
 
-
-##⚙️ How It Works
-
-The scraper is implemented using a class-based architecture, allowing easy reuse and configuration.
-
-🔹 Main Class: WebScraper
-
-The WebScraper class is responsible for:
-
-Initializing the browser
-
-Opening the target website
-
-Extracting product data
-
-Applying rate limits
-
-Closing the browser safely
-
-🧠 Code Explanation
-1️⃣ Initialization
-def __init__(self, base_url: str, timeout: int, rate_limit: int):
+---
 
 
-base_url: Website URL to scrape
+## ⚙️ How the Scraper Works
 
-timeout: Maximum page load time
+The project is structured around a single reusable class called **`WebScraper`**, responsible for:
 
-rate_limit: Delay between requests to avoid overload
+- Initializing the browser  
+- Loading the target website  
+- Extracting product data  
+- Handling missing elements safely  
+- Applying rate limiting  
+- Closing the browser correctly  
 
-This design makes the scraper configurable and reusable.
+This design allows easy configuration and future scalability.
 
-2️⃣ WebDriver Setup
-options = webdriver.ChromeOptions()
-options.add_argument("--headless")
-options.add_argument("--no-sandbox")
-options.add_argument("--disable-dev-shm-usage")
+---
 
+## 🧠 Main Features
 
-Runs Chrome in headless mode
+- Headless browser execution  
+- Dynamic content handling  
+- Structured data extraction  
+- Graceful error handling  
+- Configurable timeout and rate limit  
 
-Optimized for Docker/Linux environments
+---
 
-Improves performance and stability
+## 🧩 Extracted Data
 
-3️⃣ Opening the Website
-def open_site(self):
-    self.driver.get(self.base_url)
+For each product, the scraper collects:
 
+- Name  
+- Price  
+- Description  
+- Rating (based on star count)  
+- Reviews text  
 
-Loads the target page before data extraction.
+All data is stored as a **list of dictionaries**, ready for export or database integration.
 
-4️⃣ Extracting Product Data
-def get_products(self):
+---
 
+## ▶️ How to Run the Project
 
-The scraper:
+### 1️⃣ Install dependencies
 
-Locates product cards using CSS classes
-
-Extracts text-based fields
-
-Counts rating stars dynamically
-
-Handles missing elements using exception handling
-
-Extracted data is stored in a list of dictionaries, making it easy to export later (JSON, CSV, database, etc.).
-
-5️⃣ Error Handling
-except NoSuchElementException:
-    continue
-
-
-If a product card is missing an element, the scraper:
-
-Skips the item
-
-Continues execution safely
-
-This prevents the scraper from crashing.
-
-6️⃣ Rate Limiting
-time.sleep(self.rate_limit)
-
-
-Adds a delay between operations to:
-
-Avoid server overload
-
-Reduce detection/blocking risks
-
-7️⃣ Closing the Browser
-def close(self):
-    self.driver.quit()
-
-
-Ensures resources are released properly after execution.
-
-▶️ How to Run
-1. Install dependencies
+```bash
 pip install selenium
-
-2. Ensure ChromeDriver is installed
-
-Make sure chromedriver is available at:
-
-/usr/bin/chromedriver
-
-
-Or update the path in the code if necessary.
-
-3. Example Usage
-scraper = WebScraper(
-    base_url="https://example.com",
-    timeout=10,
-    rate_limit=2
-)
-
-scraper.open_site()
-products = scraper.get_products()
-scraper.close()
-
-print(products)
-
-📈 Possible Improvements
-
-Export data to CSV or JSON
-
-Add pagination support
-
-Integrate database storage
-
-Add logging system
-
-Implement proxy rotation
