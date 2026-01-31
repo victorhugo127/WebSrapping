@@ -1,42 +1,34 @@
-# WebSrapping
+# 🕷️ Web Scraping Project — Selenium & Python
 
-📌 Project Overview
+## 📌 Overview
 
-This project is a web scraping application developed in Python using Selenium WebDriver.
-The goal is to automatically collect product data from a dynamic website, handling pages rendered with JavaScript.
+This project is a **web scraping application** built with **Python and Selenium** to extract structured data from a dynamically rendered website (JavaScript-based).
 
-The scraper extracts structured information such as:
+The scraper collects product information in an automated and reliable way, following best practices such as **rate limiting**, **error handling**, and **object-oriented design**.
 
-Product name
+---
 
-Price
+## 🛠️ Technologies Used
 
-Description
+- Python 3  
+- Selenium WebDriver  
+- Google Chrome  
+- ChromeDriver  
+- Object-Oriented Programming (OOP)
 
-Rating
+---
 
-Reviews
+## 📂 Project Structure
 
-The project was built with code organization, scalability, and best practices in mind, simulating a real-world data collection scenario.
-
-🛠️ Tech Stack
-
-Python 3
-
-Selenium
-
-Chrome WebDriver
-
-Object-Oriented Programming (OOP)
-
-📂 Project Structure
+```text
 webscraper/
 │
-├── webscraper.py        # Main scraper class
+├── webscraper.py        # Main scraper implementation
 ├── requirements.txt    # Project dependencies
 └── README.md            # Project documentation
 
-⚙️ How It Works
+
+##⚙️ How It Works
 
 The scraper is implemented using a class-based architecture, allowing easy reuse and configuration.
 
