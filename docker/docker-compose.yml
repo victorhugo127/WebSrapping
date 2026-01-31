@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  webscraper:
+    build:
+      context: ..
+      dockerfile: docker/DockerFile
+    container_name: webscraper
+    volumes:
+      - ../output:/app/output
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: "no"
+

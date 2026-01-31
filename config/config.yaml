@@ -1,0 +1,11 @@
+site:
+  url: "https://webscraper.io/test-sites/e-commerce/allinone"
+  timeout: 10
+  retries: 3
+  rate_limit_seconds: 2
+
+output:
+  csv: true
+  json: true
+  sqlite: true
+  database_path: "products.db"
