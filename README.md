@@ -26,9 +26,7 @@ webscraper/
 ├── webscraper.py        # Main scraper implementation
 ├── requirements.txt    # Project dependencies
 └── README.md            # Project documentation
-
----
-
+```
 
 ## ⚙️ How the Scraper Works
 
