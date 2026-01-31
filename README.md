@@ -73,3 +73,50 @@ All data is stored as a **list of dictionaries**, ready for export or database i
 
 ```bash
 pip install selenium
+```
+
+### 2️⃣ Install ChromeDriver
+
+Make sure `chromedriver` is installed and accessible at:
+
+```text
+/usr/bin/chromedriver
+```
+
+### 3️⃣ Example Usage
+
+```text
+from webscraper import WebScraper
+
+scraper = WebScraper(
+    base_url="https://example.com",
+    timeout=10,
+    rate_limit=2
+)
+
+scraper.open_site()
+products = scraper.get_products()
+scraper.close()
+
+print(products)
+```
+
+### ⚠️ Error Handling & Rate Limiting
+
+Missing elements are handled using NoSuchElementException
+
+The scraper continues execution even if some product fields are not found
+
+A configurable delay (rate_limit) prevents excessive requests
+
+### 📈 Possible Enhancements
+
+Export data to CSV or JSON
+
+Pagination support
+
+Database integration
+
+Logging system
+
+Proxy and user-agent rotation
