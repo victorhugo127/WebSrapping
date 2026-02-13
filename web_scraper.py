@@ -1,6 +1,3 @@
-import yaml
-import json
-import csv
 from src.scraper import WebScraper
 from src.data_processor import save_csv, save_json
 from datetime import datetime

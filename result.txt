@@ -1,0 +1,12 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.3, pluggy-1.6.0 -- /home/victorhugo/venv/aramorais/bin/python3
+cachedir: .pytest_cache
+metadata: {'Python': '3.12.3', 'Platform': 'Linux-6.17.0-14-generic-x86_64-with-glibc2.39', 'Packages': {'pytest': '7.4.3', 'pluggy': '1.6.0'}, 'Plugins': {'metadata': '3.1.1', 'html': '4.1.1'}}
+rootdir: /home/victorhugo/projeto1
+plugins: metadata-3.1.1, html-4.1.1
+collecting ... collected 2 items
+
+tests/test_scraper.py::test_scrape_products_returns_list PASSED          [ 50%]
+tests/test_scraper.py::test_product_has_required_fields PASSED           [100%]
+
+============================== 2 passed in 8.59s ===============================
